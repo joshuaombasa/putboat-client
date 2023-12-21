@@ -1,0 +1,500 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+span,
+button,
+img,
+a {
+  display: inline-block;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(227, 232, 248);
+}
+
+.outlet-container {
+  width: 1000px;
+  margin: 0 auto;
+  min-height: 85.3vh;
+}
+
+.header-links {
+  display: flex;
+  gap: 1em;
+}
+
+.header-links>a {
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: right;
+  color: #4D4D4D;
+}
+
+.logo {
+  font-family: Inter;
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 40px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgb(8, 44, 151);
+}
+
+.footer-container {
+  text-align: center;
+  background-color: rgb(93, 100, 123);
+  /* width: 1000px; */
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.footer-container p {
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
+
+.header-container {
+  /* width: 1000px; */
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.header-container>header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+}
+
+.home-page-container p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.home-page-container h2 {
+  color: royalblue;
+}
+
+.home-page-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.find-boat-link {
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: center;
+  background-color: royalblue;
+  color: white;
+  border-radius: 3px;
+  padding: 0.5em 0;
+}
+
+.about-page-container {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.about-page-container>.image-section {
+  background-image: url('./assets/aboutPage.jpg');
+  background-size: cover;
+  background-position-y: 60%;
+  background-repeat: no-repeat;
+  height: 350px;
+}
+
+.about-page-container p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #161616;
+}
+
+.about-page-cta {
+  padding: 2em;
+  background-color: royalblue;
+  border-radius: 5px;
+  color: white;
+}
+
+.about-page-cta>p {
+  color: white;
+  margin-top: 1em;
+}
+
+.about-page-cta>a {
+  background-color: rgb(0, 10, 37);
+  width: 30%;
+  text-align: center;
+  padding: 0.5em 0;
+  border-radius: 3px;
+  margin-top: 1em;
+}
+
+.boats-page-container {
+  padding: 2em;
+}
+
+.boatItem img {
+  width: 400px;
+  border-radius: 3px;
+  height: 250px;
+}
+
+.boatItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.boatItem>span {
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 50%;
+  background-color: #FFEAD0;
+  border-radius: 3px;
+}
+
+.boatItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.boats-page-container h1 {
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+.selected-boat-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+}
+
+.rent-van-link {
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: royalblue;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.selected-boat-page-container {
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.selected-boat-page-container>span {
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: center;
+  background: #E17654;
+  color: #fff;
+  width: 30%;
+  border-radius: 3px;
+}
+
+.selected-boat-page-container>h3 {
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.not-found-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+.not-found-text {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.not-found-page-container h1 {
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.not-found-page-container a {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: center;
+  padding: 0.5em;
+  background-color: rgb(55, 149, 237);
+  color: white;
+}
+
+.login-page-container {
+  display: flex;
+  padding: 2em;
+  min-height: 80vh;
+}
+
+.login-page-text {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.login-page-text input {
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1rem;
+  background-color: #FFFFFF;
+  outline: unset;
+  border: 1px solid #D1D5DB;
+}
+
+.login-page-text .login-email {
+  border-radius: 6px 6px 0 0;
+  border-bottom: none;
+}
+
+.login-page-text .login-password {
+  border-radius: 0 0 6px 6px;
+}
+
+.login-page-text button {
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 100%;
+  padding: 0.5em 0;
+  text-align: center;
+  margin-top: 1em;
+  background-color: royalblue;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.merchant-layout-container {
+  padding: 2em;
+}
+
+.merchant-nav {
+  display: flex;
+  gap: 2em;
+  margin-bottom: 1em;
+}
+
+.merchant-nav>a {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.merchat-boats-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.merchant-boats {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.merchant-boat-item {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+  background-color: white;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.merchant-boat-item>img {
+  width: 20%;
+  height: 100px;
+  border-radius: 3px;
+}
+
+.merchant-boat-details-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 2em;
+}
+
+.merchant-boat-details-top {
+  display: flex;
+  gap: 3em;
+  align-items: center;
+}
+
+.merchant-boat-details-top img {
+  width: 400px;
+  height: 250px;
+  border-radius: 3px;
+}
+
+.merchant-boat-details-top span {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+  background-color: #E17654;
+  width: 200px;
+  padding: 0.5em 0;
+  border-radius: 3px;
+}
+
+.merchant-boat-details-top .top-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.top-info>h3 {
+  font-family: Inter;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.merchant-boat-details-nav {
+  display: flex;
+  gap: 2em;
+  margin-bottom: 1em;
+}
+
+.merchant-boat-details-nav a {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.merchant-boat-details-bottom {
+  min-height: 30vh;
+}
+
+.selected-merchant-boat-details p strong {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.selected-merchant-boat-details p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.selected-merchant-boat-pricing h3 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.selected-merchant-boat-photos img {
+  width: 300px;
+  height: 200px;
+  border-radius: 3px;
+}
