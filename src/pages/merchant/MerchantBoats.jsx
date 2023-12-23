@@ -1,8 +1,14 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Await, defer, Link, useLoaderData } from "react-router-dom";
 import { getMerchantBoats } from "../../utils/api";
+import { authenticateUser } from "../../utils/auth";
 
-export async function loader() {
+
+export async function loader({ request }) {
+    const url = new URL(request.url)
+    const pathname = url.pathname
+
+    authenticateUser(pathname)
     return defer({ merchantBoats: getMerchantBoats() })
 }
 
