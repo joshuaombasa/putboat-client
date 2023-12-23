@@ -1,9 +1,15 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { NavLink, Outlet, useParams, Link, defer, useLoaderData, Await } from "react-router-dom";
 import { getBoat } from "../../utils/api";
+import { authenticateUser } from "../../utils/auth";
+
 
 export async function loader({ request, params }) {
-   return defer({ merchantBoat: getBoat(params.id) })
+    const url = new URL(request.url)
+    const pathname = url.pathname
+
+    authenticateUser(pathname)
+    return defer({ merchantBoat: getBoat(params.id) })
 }
 
 export default function MerchantBoatDetails() {
@@ -41,7 +47,7 @@ export default function MerchantBoatDetails() {
         <div className="merchant-boat-details-page-container">
             <Suspense fallback={<h1>Loading...</h1>}>
                 <Await resolve={dataPromise.merchantBoat}>
-                    { renderMerchantBoat }
+                    {renderMerchantBoat}
                 </Await>
             </Suspense>
         </div>
