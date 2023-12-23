@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { redirect, useNavigate, useSearchParams } from "react-router-dom";
+import { handleLogin } from "../utils/api";
 
 export default function Login() {
 
@@ -6,6 +8,10 @@ export default function Login() {
         email:'',
         password: ''
     })
+
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const navigate = useNavigate()
 
     function handleChange(event) {
         const { name, value} = event.target
@@ -17,9 +23,17 @@ export default function Login() {
         })
     }
 
-    function handleSubmit(event) {
+    const sp = new URLSearchParams(searchParams)
+
+    const redirectToPath = sp.get('redirectTo') ? sp.get('redirectTo'): '/merchant'
+
+    console.log(redirectToPath)
+
+    async function handleSubmit(event) {
         event.preventDefault()
-        console.log(formData)
+        const data = await handleLogin(formData)
+        localStorage.setItem('isLoggedIn', true)
+        navigate(`${redirectToPath}`)
     }
 
     return (
