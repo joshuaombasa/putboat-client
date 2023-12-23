@@ -11,7 +11,7 @@ export async function getBoats() {
     }
 
     return data
-    
+
 }
 
 export async function getBoat(id) {
@@ -27,7 +27,7 @@ export async function getBoat(id) {
     }
 
     return data
-    
+
 }
 
 export async function getMerchantBoats() {
@@ -43,8 +43,31 @@ export async function getMerchantBoats() {
     }
 
     return data
-    
+
 }
+
+
+export async function handleLogin(formData) {
+    const res = await fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        throw {
+            message: data.message,
+            status: res.status,
+            statusText: res.statusText
+        }
+    }
+
+    return data
+};
 
 
 
