@@ -10,13 +10,14 @@ import Income, {loader as incomeLoader} from './pages/merchant/Income'
 import MerchantBoats, {loader as merchantBoatsLoader} from './pages/merchant/MerchantBoats'
 import Reviews, {loader as reviewsLoader} from './pages/merchant/Reviews'
 import Layout from './components/Layout'
-import Login from './pages/Login'
+import Login, {loader as loginLoader, action as loginAction} from './pages/Login'
 import NotFound from './pages/NotFound'
 import MerchantLayout from './components/MerchantLayout'
 import MerchantBoatDetails, {loader as merchantBoatDetailsLoader} from './pages/merchant/MerchantBoatDetails'
 import SelectedMerchantBoatDetails from './components/SelectedMerchantBoatDetails'
 import SelectedMerchantBoatPricing from './components/SelectedMerchantBoatPricing'
 import SelectedMerchantBoatPhotos from './components/SelectedMerchantBoatPhotos'
+import { action } from './pages/Login'
 
 function App() {
   
@@ -38,7 +39,7 @@ function App() {
           </Route>
           <Route path='reviews' loader={reviewsLoader}  element={<Reviews/>}/>
         </Route>
-        <Route path='login' element={<Login/>}/>
+        <Route path='login' loader={loginLoader} action={loginAction} element={<Login/>}/>
         <Route path='*' element={<NotFound/>}/>
      </Route>
     </>
