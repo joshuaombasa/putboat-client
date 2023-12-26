@@ -1,6 +1,18 @@
 import React, { useState } from "react";
-import { redirect, useNavigate, useSearchParams } from "react-router-dom";
+import { redirect, useNavigate, useSearchParams, Form } from "react-router-dom";
 import { handleLogin } from "../utils/api";
+
+export async function loader() {
+    return null
+}
+
+export async function action({request}) {
+    let formData = await request.formData()
+    const email = formData.get("email")
+    const password = formData.get("password")
+    console.log({email, password})
+    return null
+}
 
 export default function Login() {
 
@@ -46,7 +58,7 @@ export default function Login() {
             <div className="login-page-text">
                 <h1>Sign in to your account</h1>
                 {error && <h3 className="error-style">{error.message}</h3>}
-                <form onSubmit={handleSubmit}>
+                <Form  method="post">
                     <input
                         type="text"
                         className="login-email"
@@ -66,7 +78,7 @@ export default function Login() {
 
                     <button>Sign in</button>
 
-                </form>
+                </Form>
             </div>
         </div>
     )
