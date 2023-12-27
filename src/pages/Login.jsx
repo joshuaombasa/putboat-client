@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { redirect, useNavigate, useSearchParams, Form } from "react-router-dom";
+import { redirect, useNavigate, useSearchParams, Form , useActionData} from "react-router-dom";
 import { handleLogin } from "../utils/api";
 
 export async function loader() {
@@ -10,8 +10,17 @@ export async function action({request}) {
     let formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
-    console.log({email, password})
-    return null
+    
+    const sp = new URLSearchParams(request.url)
+    const redirectToPath = sp.get('redirectTo') ? sp.get('redirectTo') : '/merchant'
+    try {
+        const data = await handleLogin({email, password})
+        localStorage.setItem('isLoggedIn', true)
+        return redirect(redirectToPath)
+    } catch (error) {
+        return error
+    }
+    
 }
 
 export default function Login() {
@@ -21,7 +30,8 @@ export default function Login() {
         password: ''
     })
 
-    const [error, setError] = useState('')
+    let errors = useActionData();
+    console.log(errors)
 
     const [searchParams, setSearchParams] = useSearchParams()
 
@@ -42,22 +52,22 @@ export default function Login() {
     const redirectToPath = sp.get('redirectTo') ? sp.get('redirectTo') : '/merchant'
 
 
-    async function handleSubmit(event) {
-        event.preventDefault()
-        try {
-            const data = await handleLogin(formData)
-            localStorage.setItem('isLoggedIn', true)
-            navigate(`${redirectToPath}`)
-        } catch (error) {
-            setError(error)
-        }
-    }
+    // async function handleSubmit(event) {
+    //     event.preventDefault()
+    //     try {
+    //         const data = await handleLogin(formData)
+    //         localStorage.setItem('isLoggedIn', true)
+    //         navigate(`${redirectToPath}`)
+    //     } catch (error) {
+    //         setError(error)
+    //     }
+    // }
 
     return (
         <div className="login-page-container">
             <div className="login-page-text">
                 <h1>Sign in to your account</h1>
-                {error && <h3 className="error-style">{error.message}</h3>}
+                {errors && <h3 className="error-style">{errors.message}</h3>}
                 <Form  method="post">
                     <input
                         type="text"
