@@ -13,6 +13,7 @@ export async function action({request}) {
     
     const sp = new URLSearchParams(request.url)
     const redirectToPath = sp.get('redirectTo') ? sp.get('redirectTo') : '/merchant'
+    console.log(redirectToPath)
     try {
         const data = await handleLogin({email, password})
         localStorage.setItem('isLoggedIn', true)
@@ -31,7 +32,7 @@ export default function Login() {
     })
 
     let errors = useActionData();
-    console.log(errors)
+
 
     const [searchParams, setSearchParams] = useSearchParams()
 
@@ -47,21 +48,7 @@ export default function Login() {
         })
     }
 
-    const sp = new URLSearchParams(searchParams)
 
-    const redirectToPath = sp.get('redirectTo') ? sp.get('redirectTo') : '/merchant'
-
-
-    // async function handleSubmit(event) {
-    //     event.preventDefault()
-    //     try {
-    //         const data = await handleLogin(formData)
-    //         localStorage.setItem('isLoggedIn', true)
-    //         navigate(`${redirectToPath}`)
-    //     } catch (error) {
-    //         setError(error)
-    //     }
-    // }
 
     return (
         <div className="login-page-container">
@@ -74,16 +61,16 @@ export default function Login() {
                         className="login-email"
                         placeholder="Email address"
                         name="email"
-                        onChange={handleChange}
-                        value={formData.email}
+                        // onChange={handleChange}
+                        // value={formData.email}
                     />
                     <input
                         type="text"
                         className="login-password"
                         placeholder="Password"
                         name="password"
-                        onChange={handleChange}
-                        value={formData.password}
+                        // onChange={handleChange}
+                        // value={formData.password}
                     />
 
                     <button>Sign in</button>
