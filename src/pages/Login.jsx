@@ -10,10 +10,11 @@ export async function action({request}) {
     let formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
-    
-    const sp = new URLSearchParams(request.url)
+    const url = new URL(request.url)
+    const search = url.search
+    const sp = new URLSearchParams(search)
     const redirectToPath = sp.get('redirectTo') ? sp.get('redirectTo') : '/merchant'
-    console.log(redirectToPath)
+    
     try {
         const data = await handleLogin({email, password})
         localStorage.setItem('isLoggedIn', true)
