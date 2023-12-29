@@ -5,7 +5,6 @@ import { authenticateUser } from "../../utils/auth";
 export async function loader({request}) {
     const url = new URL(request.url)
     const pathname = url.pathname
-    
     authenticateUser(pathname)
     return  null
 }
