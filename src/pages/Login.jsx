@@ -49,6 +49,10 @@ export default function Login() {
         })
     }
 
+    function handleSubmit(formData) {
+        console.log(formData)
+    }
+
 
 
     return (
@@ -56,27 +60,27 @@ export default function Login() {
             <div className="login-page-text">
                 <h1>Sign in to your account</h1>
                 {errors && <h3 className="error-style">{errors.message}</h3>}
-                <Form  method="post">
+                <form  onSubmit={handleSubmit}>
                     <input
                         type="text"
                         className="login-email"
                         placeholder="Email address"
                         name="email"
-                        // onChange={handleChange}
-                        // value={formData.email}
+                        onChange={handleChange}
+                        value={formData.email}
                     />
                     <input
                         type="text"
                         className="login-password"
                         placeholder="Password"
                         name="password"
-                        // onChange={handleChange}
-                        // value={formData.password}
+                        onChange={handleChange}
+                        value={formData.password}
                     />
 
                     <button>Sign in</button>
 
-                </Form>
+                </form>
             </div>
         </div>
     )
