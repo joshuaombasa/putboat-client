@@ -5,9 +5,9 @@ export default function Home() {
     return (
         <div className="home-page-container">
             <h1>Welcome to PutBoat – Your Gateway to Aquatic Adventures!</h1>
-            <p>At PutBoat, we believe that every journey on the water should be a memorable experience. Whether you're a seasoned sailor or a first-time adventurer, our platform is your one-stop destination for hassle-free boat rentals. We bring the joy of boating to your fingertips, making it easier than ever to set sail and explore the open seas.</p>
+            <p data-testid="intro-paragraph">At PutBoat, we believe that every journey on the water should be a memorable experience. Whether you're a seasoned sailor or a first-time adventurer, our platform is your one-stop destination for hassle-free boat rentals. We bring the joy of boating to your fingertips, making it easier than ever to set sail and explore the open seas.</p>
             <h2>Why Choose PutBoat?</h2>
-            <div className="why-putboat">
+            <div className="why-putboat" data-testid="why-items">
                 <ol>
                     <li>
                         <div className="why-item">
@@ -41,9 +41,8 @@ export default function Home() {
                     </li>
                 </ol>
             </div>
-            <p>Embark on Your Next Adventure with PutBoat!</p>
-            <p>Whether you're planning a family outing, a romantic sunset cruise, or a fishing expedition with friends, PutBoat is here to make your nautical dreams a reality. Start your journey by exploring our diverse fleet and booking your preferred boat today. </p>
-            <p>Unleash the sailor in you and create memories that will last a lifetime with PutBoat.</p>
+            <p data-testid="journey-paragraph">Embark on Your Next Adventure with PutBoat!</p>
+            <p  data-testid="adventure-paragraph">Whether you're planning a family outing, a romantic sunset cruise, or a fishing expedition with friends, PutBoat is here to make your nautical dreams a reality. Start your journey by exploring our diverse fleet and booking your preferred boat today. </p>
             <Link className='find-boat-link' to='/boats'>Find your boat</Link>
         </div>
     )
