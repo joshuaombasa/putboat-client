@@ -21,7 +21,7 @@ describe('Home Component', () => {
         expect(screen.getByTestId('journey-paragraph')).toBeInTheDocument()
         expect(screen.getByTestId('adventure-paragraph')).toBeInTheDocument()
 
-        expect(screen.getByRole('link', {name: /Find your boat/i})).toBeInTheDocument()
+        expect(screen.getByRole('link', { name: /Find your boat/i })).toBeInTheDocument()
 
         const whyItems = screen.getByTestId('why-items').querySelectorAll('li')
         expect(whyItems).toHaveLength(6)
