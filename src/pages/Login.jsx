@@ -49,7 +49,7 @@ export default function Login() {
         })
     }
 
-    function handleSubmit(formData) {
+    function handleSubmit() {
         console.log(formData)
     }
 
@@ -60,7 +60,7 @@ export default function Login() {
             <div className="login-page-text">
                 <h1>Sign in to your account</h1>
                 {errors && <h3 className="error-style">{errors.message}</h3>}
-                <form  onSubmit={handleSubmit}>
+                <div  method="post">
                     <input
                         type="text"
                         className="login-email"
@@ -78,9 +78,9 @@ export default function Login() {
                         value={formData.password}
                     />
 
-                    <button>Sign in</button>
+                    <button onClick={handleSubmit}>Sign in</button>
 
-                </form>
+                </div>
             </div>
         </div>
     )
