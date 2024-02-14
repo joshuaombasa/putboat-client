@@ -6,10 +6,12 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 import Login from "./pages/Login";
 
 function renderLoginComponent() {
-    const router = createBrowserRouter(createRoutesFromElements(
-        <Route path="/" element={<Login />} />))
+    const mockHandleLogin = jest.fn()  
 
-    render(<RouterProvider router={router} />)
+    const router = createBrowserRouter(createRoutesFromElements(
+        <Route path="/" element={<Login onLogin={mockHandleLogin}/>} />))
+
+    render(<RouterProvider router={router}/>)
 }
 
 describe('Login Component', () => {
@@ -23,17 +25,21 @@ describe('Login Component', () => {
     })
 
     test('calls handleLogin with email and password when sign in button is clicked', () => {
-        const mockHandleLogin = jest.fn()
-
+       
+        const mockHandleLogin = jest.fn() 
         renderLoginComponent()
 
         const emailInput = screen.getByPlaceholderText(/Email address/i)
         const passwordInput = screen.getByPlaceholderText(/Password/i)
         const signInButton = screen.getByRole('button', { name: /Sign in/i })
+        // const someButton = screen.getByRole('button', { name: /Some button/i })
 
         fireEvent.change(emailInput, {target: {value : 'joshuaokasa@gmail.com'}})
         fireEvent.change(passwordInput, {target: {value : 'joshuaokasa'}})
-       
+
         fireEvent.click(signInButton)
+
+        // expect(console.log).toHaveBeenCalled()
+       
     })
 })
